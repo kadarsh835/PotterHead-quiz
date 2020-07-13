@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+
+    <span><img src="../../assets/MAQ.png" height=70 width=70></span>
+    <button mat-button routerLink="/products">
+      <mat-icon>home</mat-icon>
+      Home
+    </button>
+  
+    <!-- This fills the remaining space of the current row -->
+    <span class="flex-spacer"></span>
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+        <button mat-button routerLink="/products">Products</button>
+        <button mat-button routerLink="/dashboard">Dashboard</button>
+        <button mat-button routerLink="/login"><span class="material-icons">login</span> Login</button>
+    </div>
+    <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+     <mat-icon>menu</mat-icon>
+    </button>
+  
+  </mat-toolbar>
+  <mat-menu x-position="before" #menu="matMenu">
+    <button mat-menu-item routerLink="/products">Products</button>
+    <button mat-menu-item routerLink="/dashboard">Dashboard</button>
+    <button mat-button routerLink="/login"><span class="material-icons">login</span> Login</button>
+    <!--<button mat-menu-item>Help</button>-->
+</mat-menu>
