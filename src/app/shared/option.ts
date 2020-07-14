@@ -1,5 +1,5 @@
 export class Option{
-  optionID: number;
+  id: number;
   optionString: string;
   isChecked: boolean;
 }

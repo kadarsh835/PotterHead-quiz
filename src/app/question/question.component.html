@@ -41,7 +41,7 @@
                     <!-- Mat List Used here -->
                     <mat-list>
                         <mat-list-item *ngFor="let opt of question.option">
-                            <mat-checkbox class="example-margin">{{opt.optionString}}</mat-checkbox><br>
+                            <mat-checkbox class="example-margin" [checked]= "getStatus(opt.id)" (change)="toggleOptionValue(opt.id)">{{opt.optionString}}</mat-checkbox><br>
                         </mat-list-item>
                     </mat-list>
                     <!-- Mat List ends -->
@@ -50,8 +50,8 @@
             <div fxFlex>
                 <mat-card>
                     <mat-card-actions>
-                      <button class= "button-class" mat-button (click)="prevQuestion()">SAVE & NEXT</button>
-                      <button class= "button-class" mat-button (click)="prevQuestion()">END QUIZ</button>
+                      <button class= "button-class" mat-button (click)="nextQuestion()">SAVE & NEXT</button>
+                      <button class= "button-class" mat-button (click)="endQuiz()">END QUIZ</button>
                     </mat-card-actions>
                     <!-- Mat List ends -->
                 </mat-card>

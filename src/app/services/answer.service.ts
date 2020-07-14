@@ -1,33 +1,29 @@
 import { Injectable } from '@angular/core';
-import { Question } from '../shared/question';
+import { Answers } from '../shared/answers';
 import { BaseURL } from '../shared/baseURL';
 import { HttpClient } from '@angular/common/http';
 
 //RxJS
 import { Observable } from 'rxjs';
-import { delay, map, catchError } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { ProcessHttpMessageService } from '../services/process-http-message.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class QuestionService {
+export class AnswerService {
 
   constructor(private http: HttpClient,
     private processHttpMessageService: ProcessHttpMessageService) { }
 
-  getQuestions(): Observable<Array<Question>>{
-    // Using Observables RxJS
-    return this.http.get<Array<Question>>(BaseURL+'questions')
+  getAnswers():Observable<Array<Answers>>{
+    return this.http.get<Array<Answers>>(BaseURL+'answers')
       .pipe(catchError(this.processHttpMessageService.handleError));
   }
-  getQuestion(id:number): Observable<Question>{
+  getAnswer(id:number): Observable<Answers>{
     // Using Observables RxJS
-    return this.http.get<Question>(BaseURL+'questions/'+id)
+    return this.http.get<Answers>(BaseURL+'answers/'+id)
       .pipe(catchError(this.processHttpMessageService.handleError));
   }
-  getQuestionIds(): Observable<Array<number> | any>{
-    return this.getQuestions().pipe(map(questions => questions.map(question=> question.id)))
-      .pipe(catchError(error=> error));
-  }
+
 }

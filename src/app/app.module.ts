@@ -20,6 +20,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
 
 import { QuestionService } from './services/question.service';
+import { AnswerService } from './services/answer.service';
 import { ProcessHttpMessageService } from './services/process-http-message.service';
 import { QuestionComponent } from './question/question.component';
 
@@ -48,6 +49,7 @@ import { QuestionComponent } from './question/question.component';
   ],
   providers: [
     QuestionService,
+    AnswerService,
     ProcessHttpMessageService,
     { provide: 'BaseURL', useValue: BaseURL }],
   bootstrap: [AppComponent]
