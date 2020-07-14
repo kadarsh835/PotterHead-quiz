@@ -16,16 +16,20 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCardModule } from '@angular/material/card';
 
 import { QuestionService } from './services/question.service';
 import { ProcessHttpMessageService } from './services/process-http-message.service';
+import { QuestionComponent } from './question/question.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +40,8 @@ import { ProcessHttpMessageService } from './services/process-http-message.servi
     MatButtonModule,
     MatSidenavModule,
     FlexLayoutModule,
+    MatCheckboxModule,
+    MatCardModule,
 
     BrowserAnimationsModule,
     HttpClientModule,

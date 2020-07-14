@@ -1,4 +1,5 @@
 export class Option{
-  optionNumber: number;
-  optionString: string
+  optionID: number;
+  optionString: string;
+  isChecked: boolean;
 }
