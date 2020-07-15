@@ -23,6 +23,7 @@ import { QuestionService } from './services/question.service';
 import { AnswerService } from './services/answer.service';
 import { ProcessHttpMessageService } from './services/process-http-message.service';
 import { QuestionComponent } from './question/question.component';
+import { ResultComponent } from './result/result.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { QuestionComponent } from './question/question.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    QuestionComponent
+    QuestionComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,

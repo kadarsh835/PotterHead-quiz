@@ -8,6 +8,7 @@ import { Answers } from '../shared/answers';
 import { QuestionService } from '../services/question.service';
 import { AnswerService } from '../services/answer.service';
 import { switchMap } from 'rxjs/operators';
+import { BaseURL } from '../shared/baseURL';
 
 @Component({
   selector: 'app-question',
@@ -28,6 +29,7 @@ export class QuestionComponent implements OnInit {
   testVar=true;
 
   submittedAnswers: Array<Question>;
+
   answers: Array<Answers>;
   answer: Answers;
   score: number;
@@ -41,25 +43,51 @@ export class QuestionComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.answers=null;
     this.score=0;
-    this.questionIDs=[];
+    this.questionIDs=new Array<number>();
+    
+    this.answers==new Array<Answers>();
+    this.answer=new Answers();
 
-    this.questionService.getQuestionIds()
-      .subscribe((questionIDs)=>{this.questionIDs=questionIDs});
-    this.totalScore=this.questionIDs.length;
-    console.log("Total Score: "+ this.totalScore)
-    this.route.params
-      .pipe(switchMap((params: Params)=>{
-        return this.questionService.getQuestion(params['id'])
-      }))
-      .subscribe((question)=>{
-        this.question= question;
-        this.setPrevNext(this.question.id);
+    this.questionService.getQuestions()
+      .subscribe((questions)=>{this.questions=questions});
+    
+    this.getTotalScore()
+    .then((ques)=>{
+      this.questions=ques
+      console.log(this.questions)
+      this.totalScore=this.questions.length
+      this.questions.forEach(que=>{
+        this.questionIDs.push(que.id)
       })
-  }  
-  setPrevNext(dishId: number){
-    const index= this.questionIDs.indexOf(dishId);
+      console.log('TotalScore: '+ this.totalScore)
+    })
+    .then(()=>{
+      console.log("Total Score: "+ this.totalScore)
+      this.route.params
+        .pipe(switchMap((params: Params)=>{
+          return this.questionService.getQuestion(params['id'])
+        }))
+        .subscribe((question)=>{
+          this.question= question;
+          this.setPrevNext(this.question.id);
+        })
+    }
+    )
+  } 
+
+  async getTotalScore(): Promise<Array<Question>>{
+    var questions:Array<Question>;
+    await fetch(BaseURL+'questions')
+    .then(response => response.json())
+    .then((ques)=>{
+      questions=ques;
+    })
+    return questions;
+  }
+
+  setPrevNext(questionID: number){
+    var index= this.questionIDs.indexOf(questionID);
     this.prev= this.questionIDs[(this.questionIDs.length + index-1)%this.questionIDs.length];
     this.next= this.questionIDs[(this.questionIDs.length + index+1)%this.questionIDs.length];
   }
@@ -138,7 +166,7 @@ export class QuestionComponent implements OnInit {
     return this.question.option[optID-1].isChecked;
   }
 
-  endQuiz(){
+  async endQuiz(){
     var present= false;
     for(var que of this.submittedAnswers){
       if (que.id==this.question.id){
@@ -150,20 +178,31 @@ export class QuestionComponent implements OnInit {
     if(present==false)
       this.submittedAnswers.push(this.question)
 
-    this.answer.id=0;
-    this.answer.options=[1,2];
-    for(var que of this.submittedAnswers){
-      this.answerService.getAnswer(que.id)
-        .subscribe((answer)=> {answer=answer});
+    for(let que of this.submittedAnswers){
+      // this.answerService.getAnswer(que.id)
+      //   .subscribe((answer)=> {this.answer=answer});
         
-      console.log('Answer: '+ this.answer.id);
-      var correct=true;
-      for(var corr in this.answer.options){
-        if(que.option[corr].isChecked!=true)
-          correct=false;
-      }
-      if(correct)
-        this.score++;
+      // if(this.answer==undefined){
+        var correct:boolean=true;
+        await fetch(BaseURL+'answers/'+que.id)
+        .then(response => response.json())
+        .then((answer)=>{
+          this.answer=answer;
+        })
+      // }
+      .then(()=>{
+        
+        let answerSubmittted=que.option.filter((opt)=>{return opt.isChecked})
+        let optionsSubmitted=answerSubmittted.map(submitted=>submitted.id)
+
+        function arraysEqual(a1,a2) {
+          return JSON.stringify(a1)==JSON.stringify(a2);
+        }
+        correct=arraysEqual(this.answer.options, optionsSubmitted)
+
+        if(correct)
+          this.score++;
+      })
     }
     console.log('Your Score is '+ this.score+' out of '+ this.totalScore);
   }
