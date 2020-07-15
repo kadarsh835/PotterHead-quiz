@@ -7,14 +7,14 @@
     fxLayoutGap="10px" 
     fxLayoutGap.xs="0" *ngIf="question">
 
-    <div></div>
     <div fxFlex="20"></div>
     <div fxFlex="30">
         <mat-card class="example-card">
             <mat-card-header>
               <div mat-card-avatar class="example-header-image"></div>
               <mat-card-title>Question {{question.id}}</mat-card-title>
-              <mat-card-subtitle>Identify the Animal</mat-card-subtitle>
+              <mat-card-subtitle>Category: {{question.category}}<br>
+                Difficulty: {{question.difficulty}}</mat-card-subtitle>
             </mat-card-header>
             <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
             <mat-card-content>
@@ -41,7 +41,7 @@
                     <!-- Mat List Used here -->
                     <mat-list>
                         <mat-list-item *ngFor="let opt of question.option">
-                            <mat-checkbox class="example-margin" [checked]= "getStatus(opt.id)" (change)="toggleOptionValue(opt.id)">{{opt.optionString}}</mat-checkbox><br>
+                            <mat-checkbox class="example-margin" id="{{question.id}}_{{opt.id}}" [checked]= "getStatus(opt.id)" (change)="toggleOptionValue(opt.id)">{{opt.optionString}}</mat-checkbox><br>
                         </mat-list-item>
                     </mat-list>
                     <!-- Mat List ends -->
@@ -52,6 +52,7 @@
                     <mat-card-actions>
                       <button class= "button-class" mat-button (click)="nextQuestion()">SAVE & NEXT</button>
                       <button class= "button-class" mat-button (click)="endQuiz()">END QUIZ</button>
+                      TOTAL TIME(in seconds): {{timeLeft}} LEFT
                     </mat-card-actions>
                     <!-- Mat List ends -->
                 </mat-card>

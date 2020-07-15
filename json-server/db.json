@@ -2,6 +2,8 @@
   "questions":[
     {
       "id":1,
+      "difficulty": 7,
+      "category": "Animal",
       "question":"Question 1",
       "option":[
         {
@@ -28,6 +30,8 @@
     },
     {
       "id":2,
+      "difficulty": 7,
+      "category": "Animal",
       "question":"Question 2",
       "option":[
         {
@@ -54,6 +58,8 @@
     },
     {
       "id":3,
+      "difficulty": 7,
+      "category": "Plant",
       "question":"Question 3",
       "option":[
         {

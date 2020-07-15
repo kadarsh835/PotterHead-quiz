@@ -21,6 +21,7 @@ import { MatCardModule } from '@angular/material/card';
 
 import { QuestionService } from './services/question.service';
 import { AnswerService } from './services/answer.service';
+import { SharedService } from './services/shared.service';
 import { ProcessHttpMessageService } from './services/process-http-message.service';
 import { QuestionComponent } from './question/question.component';
 import { ResultComponent } from './result/result.component';
@@ -52,6 +53,7 @@ import { ResultComponent } from './result/result.component';
   providers: [
     QuestionService,
     AnswerService,
+    SharedService,
     ProcessHttpMessageService,
     { provide: 'BaseURL', useValue: BaseURL }],
   bootstrap: [AppComponent]

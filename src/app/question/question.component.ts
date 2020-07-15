@@ -1,14 +1,14 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { Params, ActivatedRoute } from '@angular/router';
-
-import { Location } from '@angular/common';
+import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
+import { Params, ActivatedRoute, Router } from '@angular/router';
 
 import { Question } from '../shared/question';
 import { Answers } from '../shared/answers';
 import { QuestionService } from '../services/question.service';
 import { AnswerService } from '../services/answer.service';
+import { SharedService } from '../services/shared.service';
 import { switchMap } from 'rxjs/operators';
 import { BaseURL } from '../shared/baseURL';
+import { Route } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'app-question',
@@ -34,12 +34,32 @@ export class QuestionComponent implements OnInit {
   answer: Answers;
   score: number;
 
-  constructor(private questionService: QuestionService,
+  resultMode: boolean;
+  countGetStatus:number
+
+  // Timer
+  timeLeft: number = 1800;
+  interval;
+
+  startTimer() {
+    this.interval = setInterval(() => {
+      if(this.timeLeft > 0) {
+        this.timeLeft--;
+      } else {
+        this.endQuiz();
+      }
+    },1000)
+  }
+
+  constructor(public questionService: QuestionService,
+    private router: Router,
     private answerService: AnswerService,
+    private sharedService: SharedService,
     private route: ActivatedRoute,
-    private location: Location,
     @Inject('BaseURL') public BaseURL,) {
       this.submittedAnswers=[];
+      this.resultMode=false;
+      this.countGetStatus=0;
     }
 
   ngOnInit(): void {
@@ -72,6 +92,7 @@ export class QuestionComponent implements OnInit {
           this.question= question;
           this.setPrevNext(this.question.id);
         })
+        this.startTimer();
     }
     )
   } 
@@ -161,10 +182,31 @@ export class QuestionComponent implements OnInit {
   toggleOptionValue(optID: number){
     this.question.option[optID-1].isChecked=!(this.question.option[optID-1].isChecked);
   }
-
+// Problem starts here
   getStatus(optID:number){
+    if(this.resultMode && this.question.option[optID-1].isChecked){
+      this.colorOptions(optID);
+    }
     return this.question.option[optID-1].isChecked;
   }
+
+  async colorOptions(optID:number){
+    await fetch(BaseURL+'answers/'+this.question.id)
+    .then(response => response.json())
+    .then((answer)=>{
+      var index= -1;
+      index= answer.options.indexOf(optID);
+      if(index==undefined || !(index>=0 && index<=this.totalScore)){
+          if(this.question.option[optID-1].isChecked)
+          {
+            document.getElementById(this.question.id+'_'+optID).className="option-red"
+          }    
+      }
+      if(index>=0 && index<=this.totalScore)
+        document.getElementById(this.question.id+'_'+optID).className="option-green"
+    })
+  }
+// Problem ends here
 
   async endQuiz(){
     var present= false;
@@ -179,17 +221,14 @@ export class QuestionComponent implements OnInit {
       this.submittedAnswers.push(this.question)
 
     for(let que of this.submittedAnswers){
-      // this.answerService.getAnswer(que.id)
-      //   .subscribe((answer)=> {this.answer=answer});
-        
-      // if(this.answer==undefined){
-        var correct:boolean=true;
-        await fetch(BaseURL+'answers/'+que.id)
-        .then(response => response.json())
-        .then((answer)=>{
-          this.answer=answer;
-        })
-      // }
+
+      var correct:boolean=true;
+      await fetch(BaseURL+'answers/'+que.id)
+      .then(response => response.json())
+      .then((answer)=>{
+        this.answer=answer;
+      })
+
       .then(()=>{
         
         let answerSubmittted=que.option.filter((opt)=>{return opt.isChecked})
@@ -205,5 +244,8 @@ export class QuestionComponent implements OnInit {
       })
     }
     console.log('Your Score is '+ this.score+' out of '+ this.totalScore);
+    this.sharedService.nextResultScore(this.score)
+    this.resultMode=true;
+    // this.router.navigateByUrl("/quiz-results");
   }
 }
