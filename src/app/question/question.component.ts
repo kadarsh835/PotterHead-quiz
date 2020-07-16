@@ -235,9 +235,23 @@ export class QuestionComponent implements OnInit {
       })
     }
     console.log('Your Score is '+ this.score+' out of '+ this.totalScore);
+    // Share values across Components
     this.sharedService.nextResultScore(this.score)
+    this.sharedService.nextTotalScore(this.totalScore)
+    this.sharedService.nextTotalTime(1800-this.timeLeft)
+
     this.resultMode=true;
     this.colorOptions();
-    // this.router.navigateByUrl("/quiz-results");
+  }
+  formatLabel(value: number | null) {
+    if (!value) {
+      return 0;
+    }
+
+    if (value >= 1000) {
+      return Math.round(value / 1000) + 'k';
+    }
+
+    return value;
   }
 }

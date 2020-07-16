@@ -1,1 +1,22 @@
-<h2>You have scored: {{score}}</h2>
+<mat-card>
+  <div style="text-align: center; font-size: 1.5em;">
+    <h1>
+      <b>
+        You have scored {{score}} out of {{totalScore}}
+      </b>
+    </h1>
+  </div>
+</mat-card>
+<div></div>
+<div style="text-align: center;">
+  <mat-list>
+    <h2>Percentage Score: {{percentageScore}}%</h2>
+    <mat-divider></mat-divider>
+    <h2>Time taken to complete the quiz: {{timeTaken}} seconds</h2>
+    <mat-divider></mat-divider>
+    <h2>STATUS: &nbsp;</h2>
+    <h2 style="color:green" *ngIf="pass_fail">PASS</h2>
+    <h2 style="color:red" *ngIf="!pass_fail">FAIL</h2>
+    <mat-divider></mat-divider>
+  </mat-list>
+</div>

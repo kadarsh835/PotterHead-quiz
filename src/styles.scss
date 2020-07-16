@@ -11,3 +11,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .button-class{
     background-color: wheat;
 }
+
+.mat-accent .mat-slider-thumb-label {
+    background-color: red;
+}
+.mat-accent .mat-slider-track-fill {
+    background-color: red;
+}
+.mat-accent .mat-slider-thumb-label-text{
+  color: black;
+}
+
+.mouse-not-allowed{
+  pointer-events: none;
+}

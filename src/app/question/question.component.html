@@ -1,4 +1,10 @@
 <!-- ngIf in this div -->
+<br>
+<mat-card>
+  <div style="text-align: center; font-size: 1.5em;"><b>TIME LEFT(in seconds): {{timeLeft}}</b></div>
+</mat-card>
+  <br>
+<br>
 <div class="container"
     fxLayout="row"
     fxLayout.sm="column"
@@ -13,8 +19,14 @@
             <mat-card-header>
               <div mat-card-avatar class="example-header-image"></div>
               <mat-card-title>Question {{question.id}}</mat-card-title>
-              <mat-card-subtitle>Category: {{question.category}}<br>
-                Difficulty: {{question.difficulty}}</mat-card-subtitle>
+              <mat-card-subtitle>Category: {{question.category}}<br><br>
+                Difficulty: <mat-slider
+                thumbLabel
+                value="{{question.difficulty}}"
+                tickInterval="1"
+                min="1"
+                max="10" class="mouse-not-allowed"></mat-slider>
+              </mat-card-subtitle>
             </mat-card-header>
             <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
             <mat-card-content>
@@ -22,8 +34,8 @@
               </p>
             </mat-card-content>
             <mat-card-actions>
-              <button class= "button-class" mat-button (click)="prevQuestion()">PREV</button>
-              <button class= "button-class" mat-button (click)="nextQuestion()">NEXT</button>
+              <button class= "button-class" style="background-color: #3f51b5;" mat-button (click)="prevQuestion()">PREV</button>
+              <button class= "button-class" style="background-color: #3f51b5;" mat-button (click)="nextQuestion()">NEXT</button>
             </mat-card-actions>
           </mat-card>
     </div>
@@ -41,7 +53,12 @@
                     <!-- Mat List Used here -->
                     <mat-list>
                         <mat-list-item *ngFor="let opt of question.option">
-                                      <mat-checkbox class="{{opt.class}}" id="{{question.id}}_{{opt.id}}" [checked]= "opt.isChecked" (change)="toggleOptionValue(opt.id)">{{opt.optionString}}</mat-checkbox><br>
+                                      <mat-checkbox class="{{opt.class}}" style="margin-top: 10px; white-space: pre-wrap;" id="{{question.id}}_{{opt.id}}"
+                                        [checked]= "opt.isChecked"
+                                        [disabled]= "resultMode"
+                                        (change)="toggleOptionValue(opt.id)">
+                                        <p style="margin-top: 10px; white-space: pre-wrap;">{{opt.optionString}}</p>
+                                      </mat-checkbox><br>
                         </mat-list-item>
                     </mat-list>
                     <!-- Mat List ends -->
@@ -49,10 +66,12 @@
             </div>
             <div fxFlex>
                 <mat-card>
-                    <mat-card-actions>
-                      <button class= "button-class" mat-button (click)="nextQuestion()">SAVE & NEXT</button>
-                      <button class= "button-class" mat-button (click)="endQuiz()">END QUIZ</button>
-                      TOTAL TIME(in seconds): {{timeLeft}} LEFT
+                    <mat-card-actions *ngIf= "!resultMode">
+                      <!-- <button class= "button-class" mat-button (click)="nextQuestion()">SAVE & NEXT</button> -->
+                      <button *ngIf= "!resultMode" class= "button-class" style="background-color: red;" mat-button (click)="endQuiz()">END QUIZ</button>
+                    </mat-card-actions>
+                    <mat-card-actions *ngIf= "resultMode">
+                      <button *ngIf= "resultMode" class= "button-class" mat-button [routerLink]="['/quiz-results']">View Report</button>
                     </mat-card-actions>
                     <!-- Mat List ends -->
                 </mat-card>
@@ -61,3 +80,4 @@
     </div>
     <div fxFlex="20"></div>
 </div>
+<br><br>

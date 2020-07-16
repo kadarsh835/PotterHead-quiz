@@ -18,6 +18,8 @@ import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatListModule } from '@angular/material/list';
 
 import { QuestionService } from './services/question.service';
 import { AnswerService } from './services/answer.service';
@@ -46,6 +48,8 @@ import { ResultComponent } from './result/result.component';
     FlexLayoutModule,
     MatCheckboxModule,
     MatCardModule,
+    MatSliderModule,
+    MatListModule,
 
     BrowserAnimationsModule,
     HttpClientModule,
