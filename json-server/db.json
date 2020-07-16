@@ -2,13 +2,13 @@
   "questions":[
     {
       "id":1,
-      "difficulty": 7,
+      "difficulty": 6,
       "category": "Animal",
       "question":"Question 1",
       "option":[
         {
           "id": 1,
-          "optionString": "Option_1_1",
+          "optionString": "Option_1_1 Option_1_1 Option_1_1 Option_1_1 Option_1_1 Option_1_1 Option_1_1 Option_1_1 Option_1_1 ",
           "isChecked": false,
           "class":"example-margin"
         },
