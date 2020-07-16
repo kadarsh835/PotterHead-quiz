@@ -16,7 +16,7 @@ import { Route } from '@angular/compiler/src/core';
   styleUrls: ['./question.component.scss']
 })
 export class QuestionComponent implements OnInit {
-  
+
   question: Question;
   questions: Array<Question>;
   errMess: string;
@@ -35,7 +35,6 @@ export class QuestionComponent implements OnInit {
   score: number;
 
   resultMode: boolean;
-  countGetStatus:number
 
   // Timer
   timeLeft: number = 1800;
@@ -59,19 +58,18 @@ export class QuestionComponent implements OnInit {
     @Inject('BaseURL') public BaseURL,) {
       this.submittedAnswers=[];
       this.resultMode=false;
-      this.countGetStatus=0;
     }
 
   ngOnInit(): void {
     this.score=0;
     this.questionIDs=new Array<number>();
-    
+
     this.answers==new Array<Answers>();
     this.answer=new Answers();
 
     this.questionService.getQuestions()
       .subscribe((questions)=>{this.questions=questions});
-    
+
     this.getTotalScore()
     .then((ques)=>{
       this.questions=ques
@@ -95,7 +93,7 @@ export class QuestionComponent implements OnInit {
         this.startTimer();
     }
     )
-  } 
+  }
 
   async getTotalScore(): Promise<Array<Question>>{
     var questions:Array<Question>;
@@ -112,7 +110,7 @@ export class QuestionComponent implements OnInit {
     this.prev= this.questionIDs[(this.questionIDs.length + index-1)%this.questionIDs.length];
     this.next= this.questionIDs[(this.questionIDs.length + index+1)%this.questionIDs.length];
   }
-  
+
   prevQuestion(){
     // Store answers of the questions visited; change options of previous questions
     var present= false;
@@ -125,7 +123,7 @@ export class QuestionComponent implements OnInit {
     }
     if(present==false)
       this.submittedAnswers.push(this.question)
-    
+
     // Get question from local if the question has been visited earlier
     present=false;
     for(var que of this.submittedAnswers){
@@ -182,31 +180,24 @@ export class QuestionComponent implements OnInit {
   toggleOptionValue(optID: number){
     this.question.option[optID-1].isChecked=!(this.question.option[optID-1].isChecked);
   }
-// Problem starts here
-  getStatus(optID:number){
-    if(this.resultMode && this.question.option[optID-1].isChecked){
-      this.colorOptions(optID);
-    }
-    return this.question.option[optID-1].isChecked;
-  }
 
-  async colorOptions(optID:number){
-    await fetch(BaseURL+'answers/'+this.question.id)
-    .then(response => response.json())
-    .then((answer)=>{
-      var index= -1;
-      index= answer.options.indexOf(optID);
-      if(index==undefined || !(index>=0 && index<=this.totalScore)){
-          if(this.question.option[optID-1].isChecked)
-          {
-            document.getElementById(this.question.id+'_'+optID).className="option-red"
-          }    
-      }
-      if(index>=0 && index<=this.totalScore)
-        document.getElementById(this.question.id+'_'+optID).className="option-green"
-    })
+  async colorOptions(){
+    for(let que of this.submittedAnswers){
+      await fetch(BaseURL+'answers/'+ que.id)
+      .then(response => response.json())
+      .then((answer)=>{
+        for(let opt of que.option){
+          let index= -1;
+          index= answer.options.indexOf(opt.id);
+          if(index==-1 && que.option[opt.id-1].isChecked)
+            opt.class="option-red"
+
+          if(index>=0 && index<=this.totalScore)
+            opt.class="option-green"
+        }
+      })
+    }
   }
-// Problem ends here
 
   async endQuiz(){
     var present= false;
@@ -230,7 +221,7 @@ export class QuestionComponent implements OnInit {
       })
 
       .then(()=>{
-        
+
         let answerSubmittted=que.option.filter((opt)=>{return opt.isChecked})
         let optionsSubmitted=answerSubmittted.map(submitted=>submitted.id)
 
@@ -246,6 +237,7 @@ export class QuestionComponent implements OnInit {
     console.log('Your Score is '+ this.score+' out of '+ this.totalScore);
     this.sharedService.nextResultScore(this.score)
     this.resultMode=true;
+    this.colorOptions();
     // this.router.navigateByUrl("/quiz-results");
   }
 }

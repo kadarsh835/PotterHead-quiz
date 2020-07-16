@@ -9,22 +9,26 @@
         {
           "id": 1,
           "optionString": "Option_1_1",
-          "isChecked": false
+          "isChecked": false,
+          "class":"example-margin"
         },
         {
           "id": 2,
           "optionString": "Option_1_2",
-          "isChecked": false
+          "isChecked": false,
+          "class":"example-margin"
         },
         {
           "id": 3,
           "optionString": "Option_1_3",
-          "isChecked": false
+          "isChecked": false,
+          "class":"example-margin"
         },
         {
           "id": 4,
           "optionString": "Option_1_4",
-          "isChecked": false
+          "isChecked": false,
+          "class":"example-margin"
         }
       ]
     },
@@ -37,22 +41,26 @@
         {
           "id": 1,
           "optionString": "Option_2_1",
-          "isChecked": false
+          "isChecked": false,
+          "class":"example-margin"
         },
         {
           "id": 2,
           "optionString": "Option_2_2",
-          "isChecked": false
+          "isChecked": false,
+          "class":"example-margin"
         },
         {
           "id": 3,
           "optionString": "Option_2_3",
-          "isChecked": false
+          "isChecked": false,
+          "class":"example-margin"
         },
         {
           "id": 4,
           "optionString": "Option_2_4",
-          "isChecked": false
+          "isChecked": false,
+          "class":"example-margin"
         }
       ]
     },
@@ -65,22 +73,26 @@
         {
           "id": 1,
           "optionString": "Option_3_1",
-          "isChecked": false
+          "isChecked": false,
+          "class":"example-margin"
         },
         {
           "id": 2,
           "optionString": "Option_3_2",
-          "isChecked": false
+          "isChecked": false,
+          "class":"example-margin"
         },
         {
           "id": 3,
           "optionString": "Option_3_3",
-          "isChecked": false
+          "isChecked": false,
+          "class":"example-margin"
         },
         {
           "id": 4,
           "optionString": "Option_3_4",
-          "isChecked": false
+          "isChecked": false,
+          "class":"example-margin"
         }
       ]
     }

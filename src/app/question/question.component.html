@@ -4,7 +4,7 @@
     fxLayout.sm="column"
     fxLayout.xs="column"
     fxLayoutAlign.gt-md="space-around center"
-    fxLayoutGap="10px" 
+    fxLayoutGap="10px"
     fxLayoutGap.xs="0" *ngIf="question">
 
     <div fxFlex="20"></div>
@@ -27,7 +27,7 @@
             </mat-card-actions>
           </mat-card>
     </div>
-    
+
     <div fxFlex="30">
         <div class="container"
             fxLayout="column"
@@ -41,7 +41,7 @@
                     <!-- Mat List Used here -->
                     <mat-list>
                         <mat-list-item *ngFor="let opt of question.option">
-                            <mat-checkbox class="example-margin" id="{{question.id}}_{{opt.id}}" [checked]= "getStatus(opt.id)" (change)="toggleOptionValue(opt.id)">{{opt.optionString}}</mat-checkbox><br>
+                                      <mat-checkbox class="{{opt.class}}" id="{{question.id}}_{{opt.id}}" [checked]= "opt.isChecked" (change)="toggleOptionValue(opt.id)">{{opt.optionString}}</mat-checkbox><br>
                         </mat-list-item>
                     </mat-list>
                     <!-- Mat List ends -->
