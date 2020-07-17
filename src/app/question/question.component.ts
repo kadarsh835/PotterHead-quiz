@@ -245,7 +245,6 @@ export class QuestionComponent implements OnInit {
           this.score++;
       })
     }
-    console.log('Your Score is '+ this.score+' out of '+ this.totalScore);
     // Share values across Components
     this.sharedService.nextResultScore(this.score)
     this.sharedService.nextTotalScore(this.totalScore)

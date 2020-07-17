@@ -3,30 +3,31 @@
     {
       "id":1,
       "difficulty": 2,
-      "category": "Animal",
-      "question":"Question 1",
+      "gif": "https://media1.tenor.com/images/a5b7431861fe73bbbc0f0b59c3327be8/tenor.gif?itemid=10841173",
+      "category": "Movie",
+      "question":"Select the founders of Hogwarts.",
       "option":[
         {
           "id": 1,
-          "optionString": "Option_1_1 Option_1_1 ",
+          "optionString": "Godric Gryffindor",
           "isChecked": false,
           "class":"example-margin"
         },
         {
           "id": 2,
-          "optionString": "Option_1_2",
+          "optionString": "Salazar Slytherin",
           "isChecked": false,
           "class":"example-margin"
         },
         {
           "id": 3,
-          "optionString": "Option_1_3",
+          "optionString": "Rowena Ravenclaw",
           "isChecked": false,
           "class":"example-margin"
         },
         {
           "id": 4,
-          "optionString": "Option_1_4",
+          "optionString": "Helga Hufflepuff",
           "isChecked": false,
           "class":"example-margin"
         }
@@ -34,31 +35,32 @@
     },
     {
       "id":2,
-      "difficulty": 8,
-      "category": "Animal",
-      "question":"Question 2",
+      "difficulty": 1,
+      "gif": "https://media1.giphy.com/media/26BRzozg4TCBXv6QU/giphy.gif",
+      "category": "Movie",
+      "question":"Which movie is this?",
       "option":[
         {
           "id": 1,
-          "optionString": "Option_2_1",
+          "optionString": "Harry Potter and the Half-Blood Prince",
           "isChecked": false,
           "class":"example-margin"
         },
         {
           "id": 2,
-          "optionString": "Option_2_2",
+          "optionString": "Harry Potter and the Order of the Phoenix",
           "isChecked": false,
           "class":"example-margin"
         },
         {
           "id": 3,
-          "optionString": "Option_2_3",
+          "optionString": "Harry Potter and the Deathly Hallows – Part 1",
           "isChecked": false,
           "class":"example-margin"
         },
         {
           "id": 4,
-          "optionString": "Option_2_4",
+          "optionString": "Harry Potter and the Deathly Hallows – Part 2",
           "isChecked": false,
           "class":"example-margin"
         }
@@ -66,31 +68,203 @@
     },
     {
       "id":3,
-      "difficulty": 5,
-      "category": "Plant",
-      "question":"Question 3",
+      "difficulty": 4,
+      "gif":"https://media2.giphy.com/media/Th8FaGYsmPMwU/giphy.gif",
+      "category": "Movie",
+      "question":"Which movie is this?",
       "option":[
         {
           "id": 1,
-          "optionString": "Option_3_1",
+          "optionString": "Harry Potter and the Half-Blood Prince",
           "isChecked": false,
           "class":"example-margin"
         },
         {
           "id": 2,
-          "optionString": "Option_3_2",
+          "optionString": "Harry Potter and the Chamber of Secrets",
           "isChecked": false,
           "class":"example-margin"
         },
         {
           "id": 3,
-          "optionString": "Option_3_3",
+          "optionString": "Harry Potter and the Goblet of Fire",
           "isChecked": false,
           "class":"example-margin"
         },
         {
           "id": 4,
-          "optionString": "Option_3_4",
+          "optionString": "Harry Potter and the Order of the Phoenix",
+          "isChecked": false,
+          "class":"example-margin"
+        }
+      ]
+    },
+    {
+      "id":4,
+      "difficulty": 3,
+      "category": "Person",
+      "gif":"https://i.pinimg.com/originals/b3/b7/db/b3b7db2d8d6c77c21879940dd788f9c4.gif",
+      "question":"What is the name of the character in the Harry Potter movie Series",
+      "option":[
+        {
+          "id": 1,
+          "optionString": "Bellatrix Lestrange",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 2,
+          "optionString": "Hermione Granger",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 3,
+          "optionString": "Ginny Weasley",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 4,
+          "optionString": "Luna Lovegood",
+          "isChecked": false,
+          "class":"example-margin"
+        }
+      ]
+    },
+    {
+      "id":5,
+      "difficulty": 8,
+      "gif":"https://media2.giphy.com/media/Th8FaGYsmPMwU/giphy.gif",
+      "category": "Movie",
+      "question":"Which movie is this?",
+      "option":[
+        {
+          "id": 1,
+          "optionString": "Harry Potter and the Half-Blood Prince",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 2,
+          "optionString": "Harry Potter and the Chamber of Secrets",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 3,
+          "optionString": "Harry Potter and the Philosopher's Stone",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 4,
+          "optionString": "Harry Potter and the Order of the Phoenix",
+          "isChecked": false,
+          "class":"example-margin"
+        }
+      ]
+    },
+    {
+      "id":6,
+      "difficulty": 8,
+      "gif":"https://media2.giphy.com/media/Th8FaGYsmPMwU/giphy.gif",
+      "category": "Object",
+      "question":"What chess piece does the Lovegood house resemble?",
+      "option":[
+        {
+          "id": 1,
+          "optionString": "Rook",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 2,
+          "optionString": "Bishop",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 3,
+          "optionString": "Queen",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 4,
+          "optionString": "Knight",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 5,
+          "optionString": "King",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 6,
+          "optionString": "Pawn",
+          "isChecked": false,
+          "class":"example-margin"
+        }
+      ]
+    },
+    {
+      "id":7,
+      "difficulty": 9,
+      "gif":"https://media2.giphy.com/media/Th8FaGYsmPMwU/giphy.gif",
+      "category": "Object",
+      "question":"What is the name of the Weasley's house?",
+      "option":[
+        {
+          "id": 1,
+          "optionString": "Ottery St Catchpole",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 2,
+          "optionString": "The Burrow",
+          "isChecked": false,
+          "class":"example-margin"
+        }
+      ]
+    },
+    {
+      "id":8,
+      "difficulty": 3,
+      "gif":"https://media2.giphy.com/media/Th8FaGYsmPMwU/giphy.gif",
+      "category": "Movie",
+      "question":"What is Snape’s Patronus?",
+      "option":[
+        {
+          "id": 1,
+          "optionString": "Phoenix",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 2,
+          "optionString": "Stag",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 3,
+          "optionString": "Doe",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 4,
+          "optionString": "Wolf",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 5,
+          "optionString": "Cat",
           "isChecked": false,
           "class":"example-margin"
         }
@@ -100,15 +274,35 @@
   "answers":[
     {
       "id": 1,
-      "options": [1,2]
+      "options": [1,2,3,4]
     },
     {
       "id": 2,
-      "options": [2,3]
+      "options": [2]
     },
     {
       "id": 3,
-      "options": [3,4]
+      "options": [3]
+    },
+    {
+      "id": 4,
+      "options": [1]
+    },
+    {
+      "id": 5,
+      "options": [3]
+    },
+    {
+      "id": 6,
+      "options": [1]
+    },
+    {
+      "id": 7,
+      "options": [2]
+    },
+    {
+      "id": 8,
+      "options": [3]
     }
   ]
 }

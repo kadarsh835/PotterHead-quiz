@@ -8,7 +8,7 @@
   </div>
 </mat-card>
 <div></div>
-<div style="text-align: center;">
+<div style="text-align: center; color: white;">
   <mat-list>
     <h2>Percentage Score: {{percentageScore}}%</h2>
     <mat-divider></mat-divider>
@@ -18,7 +18,7 @@
     <h2 style="color:green" *ngIf="pass_fail">PASS</h2>
     <h2 style="color:red" *ngIf="!pass_fail">FAIL</h2>
     <mat-divider></mat-divider>
-    <button class= "button-class" style="background-color: lightgreen;" mat-button [routerLink]="['/quiz', 1]">REPLAY</button>
+    <button class= "button-class" style="background-color: blue;" mat-button [routerLink]="['/quiz', 1]">REPLAY</button>
     <mat-divider></mat-divider>
   </mat-list>
 </div>
