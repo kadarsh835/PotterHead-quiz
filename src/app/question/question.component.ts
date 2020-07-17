@@ -38,12 +38,18 @@ export class QuestionComponent implements OnInit {
 
   // Timer
   timeLeft: number = 1800;
+  timeLeftMinutes:number;
+  timeLeftSeconds:number;
   interval;
+  questionsVisited:number;
+  percentageComplete: number;
 
   startTimer() {
     this.interval = setInterval(() => {
       if(this.timeLeft > 0) {
         this.timeLeft--;
+        this.timeLeftMinutes=Math.floor(this.timeLeft/60);
+        this.timeLeftSeconds=this.timeLeft%60;
       } else {
         this.endQuiz();
       }
@@ -88,6 +94,8 @@ export class QuestionComponent implements OnInit {
         }))
         .subscribe((question)=>{
           this.question= question;
+          this.questionsVisited=Math.min(this.submittedAnswers.length+1, this.totalScore)
+          this.percentageComplete=(this.question.id*100)/this.totalScore
           this.setPrevNext(this.question.id);
         })
         this.startTimer();
@@ -142,6 +150,8 @@ export class QuestionComponent implements OnInit {
           this.setPrevNext(this.question.id);
         })
     }
+    this.questionsVisited=Math.min(this.submittedAnswers.length+1, this.totalScore)
+    this.percentageComplete=(this.question.id*100)/this.totalScore
   }
   nextQuestion(){
     // Store answers of the questions visited; change options of previous questions
@@ -174,7 +184,8 @@ export class QuestionComponent implements OnInit {
           this.setPrevNext(this.question.id);
         })
     }
-    // console.log(JSON.stringify(this.submittedAnswers))
+    this.questionsVisited=Math.min(this.submittedAnswers.length+1, this.totalScore)
+    this.percentageComplete=(this.question.id*100)/this.totalScore
   }
 
   toggleOptionValue(optID: number){

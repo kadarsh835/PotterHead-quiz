@@ -1,9 +1,16 @@
 <!-- ngIf in this div -->
+
 <br>
-<mat-card>
-  <div style="text-align: center; font-size: 1.5em;"><b>TIME LEFT(in seconds): {{timeLeft}}</b></div>
-</mat-card>
-  <br>
+<div style="text-align: center; font-size: 1.5em;">
+    <mat-list>
+        <b>Total Questions: {{totalScore}} | Questions Visited: {{questionsVisited}}</b><br><br>
+        <mat-divider></mat-divider><br>
+        <b>TIME LEFT: {{timeLeftMinutes}} minutes and {{timeLeftSeconds}} seconds</b><br><br>
+        <mat-divider></mat-divider>
+    </mat-list>
+</div>
+<br>
+<mat-progress-bar mode="determinate" value="{{percentageComplete}}"></mat-progress-bar>
 <br>
 <div class="container"
     fxLayout="row"
@@ -50,6 +57,7 @@
                     <mat-card-header>
                         <mat-card-title style="font-size: 30px;">Options</mat-card-title>
                     </mat-card-header>
+                    <mat-divider></mat-divider>
                     <!-- Mat List Used here -->
                     <mat-list>
                         <mat-list-item *ngFor="let opt of question.option">
@@ -57,7 +65,10 @@
                                         [checked]= "opt.isChecked"
                                         [disabled]= "resultMode"
                                         (change)="toggleOptionValue(opt.id)">
-                                        <p style="margin-top: 10px; white-space: pre-wrap;">{{opt.optionString}}</p>
+                                        <mat-line>
+                                            <p style="margin-top: 10px; white-space: pre-wrap;">{{opt.optionString}}</p>
+                                            <mat-divider></mat-divider>
+                                        </mat-line>
                                       </mat-checkbox><br>
                         </mat-list-item>
                     </mat-list>

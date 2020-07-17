@@ -13,6 +13,8 @@ export class ResultComponent implements OnInit {
   percentageScore: number;
   pass_fail: boolean;
   timeTaken: number;
+  timeTakenMinutes: number;
+  timeTakenSeconds: number;
 
   constructor(public sharedService: SharedService) { }
 
@@ -20,6 +22,8 @@ export class ResultComponent implements OnInit {
     this.sharedService.sharedScore.subscribe((res) => {this.score = res});
     this.sharedService.sharedTotalScore.subscribe((totalScore)=>{this.totalScore= totalScore});
     this.sharedService.sharedTotalTime.subscribe((timeTaken)=>{this.timeTaken=timeTaken})
+    this.timeTakenMinutes=Math.floor(this.timeTaken/60);
+    this.timeTakenSeconds=Math.floor(this.timeTaken%60);
 
     this.percentageScore=Number(parseFloat((this.score*(100.0)/this.totalScore).toString()).toFixed(2));
     this.pass_fail=(this.percentageScore>=70)?true:false;

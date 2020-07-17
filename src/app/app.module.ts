@@ -20,6 +20,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatListModule } from '@angular/material/list';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 import { QuestionService } from './services/question.service';
 import { AnswerService } from './services/answer.service';
@@ -27,6 +28,7 @@ import { SharedService } from './services/shared.service';
 import { ProcessHttpMessageService } from './services/process-http-message.service';
 import { QuestionComponent } from './question/question.component';
 import { ResultComponent } from './result/result.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { ResultComponent } from './result/result.component';
     MatCardModule,
     MatSliderModule,
     MatListModule,
+    MatGridListModule,
+    MatProgressBarModule,
 
     BrowserAnimationsModule,
     HttpClientModule,
