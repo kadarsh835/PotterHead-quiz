@@ -35,10 +35,10 @@
     },
     {
       "id":2,
-      "difficulty": 1,
+      "difficulty": 3,
       "gif": "https://media1.giphy.com/media/26BRzozg4TCBXv6QU/giphy.gif",
       "category": "Movie",
-      "question":"Which movie is this?",
+      "question":"Identify the movie from where the clip has been taken.",
       "option":[
         {
           "id": 1,
@@ -48,7 +48,7 @@
         },
         {
           "id": 2,
-          "optionString": "Harry Potter and the Order of the Phoenix",
+          "optionString": "Harry Potter and the Prizioner of Azkaban",
           "isChecked": false,
           "class":"example-margin"
         },
@@ -71,7 +71,7 @@
       "difficulty": 4,
       "gif":"https://media2.giphy.com/media/Th8FaGYsmPMwU/giphy.gif",
       "category": "Movie",
-      "question":"Which movie is this?",
+      "question":"Harry Potter Undesirable No. 1- The Top headline in The Daily Prophet",
       "option":[
         {
           "id": 1,
@@ -87,7 +87,7 @@
         },
         {
           "id": 3,
-          "optionString": "Harry Potter and the Goblet of Fire",
+          "optionString": "Harry Potter and the Deathly Hallows- Part 1",
           "isChecked": false,
           "class":"example-margin"
         },
@@ -135,31 +135,43 @@
     {
       "id":5,
       "difficulty": 8,
-      "gif":"https://media2.giphy.com/media/Th8FaGYsmPMwU/giphy.gif",
+      "gif":"https://vignette.wikia.nocookie.net/harrypotter/images/3/3a/Sectumempra_Curse.gif/revision/latest?cb=20151211212618",
       "category": "Movie",
-      "question":"Which movie is this?",
+      "question":"Identify the movie name and the spell that Harry Potter uses in this scene.",
       "option":[
         {
           "id": 1,
-          "optionString": "Harry Potter and the Half-Blood Prince",
+          "optionString": "Avada Kedavra",
           "isChecked": false,
           "class":"example-margin"
         },
         {
           "id": 2,
-          "optionString": "Harry Potter and the Chamber of Secrets",
+          "optionString": "Expelliarmus",
           "isChecked": false,
           "class":"example-margin"
         },
         {
           "id": 3,
-          "optionString": "Harry Potter and the Philosopher's Stone",
+          "optionString": "Sectumsempra",
           "isChecked": false,
           "class":"example-margin"
         },
         {
           "id": 4,
-          "optionString": "Harry Potter and the Order of the Phoenix",
+          "optionString": "Harry Potter and the Half Blood Prince",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 5,
+          "optionString": "Harry Potter and the Order of Pheonix",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 6,
+          "optionString": "Harry Potter and the Deathly Hallow Part-I",
           "isChecked": false,
           "class":"example-margin"
         }
@@ -168,7 +180,7 @@
     {
       "id":6,
       "difficulty": 8,
-      "gif":"https://media2.giphy.com/media/Th8FaGYsmPMwU/giphy.gif",
+      "gif":"https://vignette.wikia.nocookie.net/harrypotter/images/9/9e/Ambush_lovegood.gif/revision/latest?cb=20180803170053",
       "category": "Object",
       "question":"What chess piece does the Lovegood house resemble?",
       "option":[
@@ -213,7 +225,7 @@
     {
       "id":7,
       "difficulty": 9,
-      "gif":"https://media2.giphy.com/media/Th8FaGYsmPMwU/giphy.gif",
+      "gif":"https://thumbs.gfycat.com/ExhaustedFinishedArachnid-small.gif",
       "category": "Object",
       "question":"What is the name of the Weasley's house?",
       "option":[
@@ -234,7 +246,7 @@
     {
       "id":8,
       "difficulty": 3,
-      "gif":"https://media2.giphy.com/media/Th8FaGYsmPMwU/giphy.gif",
+      "gif":"https://i.pinimg.com/originals/3c/8b/3f/3c8b3ff063d847c197784460bdb2eab3.gif",
       "category": "Movie",
       "question":"What is Snape’s Patronus?",
       "option":[
@@ -269,6 +281,27 @@
           "class":"example-margin"
         }
       ]
+    },
+    {
+      "id":9,
+      "difficulty": 3,
+      "gif":"https://thumbs.gfycat.com/SomeUnripeIcterinewarbler-small.gif",
+      "category": "Movie",
+      "question":"With whom did Harry Potter went on the prom in the Goblet of Fire?",
+      "option":[
+        {
+          "id": 1,
+          "optionString": "Parvati Patil",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 2,
+          "optionString": "Padma Patil",
+          "isChecked": false,
+          "class":"example-margin"
+        }
+      ]
     }
   ],
   "answers":[
@@ -290,7 +323,7 @@
     },
     {
       "id": 5,
-      "options": [3]
+      "options": [3,4]
     },
     {
       "id": 6,
@@ -303,6 +336,10 @@
     {
       "id": 8,
       "options": [3]
+    },
+    {
+      "id": 9,
+      "options": [1]
     }
   ]
 }
