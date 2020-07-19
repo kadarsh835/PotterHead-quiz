@@ -37,7 +37,8 @@ export class QuestionComponent implements OnInit {
   resultMode: boolean;
 
   // Timer
-  timeLeft: number = 1800;
+  totalTime: number;
+  timeLeft: number;
   timeLeftMinutes:number;
   timeLeftSeconds:number;
   interval;
@@ -64,6 +65,9 @@ export class QuestionComponent implements OnInit {
     @Inject('BaseURL') public BaseURL,) {
       this.submittedAnswers=[];
       this.resultMode=false;
+      this.timeLeft=900;
+      this.totalTime= 900;
+      this.timeLeft = this.totalTime;
     }
 
   ngOnInit(): void {
@@ -248,7 +252,7 @@ export class QuestionComponent implements OnInit {
     // Share values across Components
     this.sharedService.nextResultScore(this.score)
     this.sharedService.nextTotalScore(this.totalScore)
-    this.sharedService.nextTotalTime(1800-this.timeLeft)
+    this.sharedService.nextTotalTime(this.totalTime-this.timeLeft)
 
     this.resultMode=true;
     this.colorOptions();

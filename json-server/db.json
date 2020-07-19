@@ -3,7 +3,7 @@
     {
       "id":1,
       "difficulty": 2,
-      "gif": "https://media1.tenor.com/images/a5b7431861fe73bbbc0f0b59c3327be8/tenor.gif?itemid=10841173",
+      "gif": "http://localhost:3000/q1.gif",
       "category": "Movie",
       "question":"Select the founders of Hogwarts.",
       "option":[
@@ -30,13 +30,19 @@
           "optionString": "Helga Hufflepuff",
           "isChecked": false,
           "class":"example-margin"
+        },
+        {
+          "id": 5,
+          "optionString": "Tom Marvolo Riddle",
+          "isChecked": false,
+          "class":"example-margin"
         }
       ]
     },
     {
       "id":2,
       "difficulty": 3,
-      "gif": "https://media1.giphy.com/media/26BRzozg4TCBXv6QU/giphy.gif",
+      "gif": "http://localhost:3000/q2.webp",
       "category": "Movie",
       "question":"Identify the movie from where the clip has been taken.",
       "option":[
@@ -69,9 +75,9 @@
     {
       "id":3,
       "difficulty": 4,
-      "gif":"https://media2.giphy.com/media/Th8FaGYsmPMwU/giphy.gif",
+      "gif":"http://localhost:3000/q3.webp",
       "category": "Movie",
-      "question":"Harry Potter Undesirable No. 1- The Top headline in The Daily Prophet",
+      "question":"Harry Potter Undesirable No. 1- The Top headline in The Daily Prophet. From which movie has this clip been taken from?",
       "option":[
         {
           "id": 1,
@@ -103,7 +109,7 @@
       "id":4,
       "difficulty": 3,
       "category": "Person",
-      "gif":"https://i.pinimg.com/originals/b3/b7/db/b3b7db2d8d6c77c21879940dd788f9c4.gif",
+      "gif":"http://localhost:3000/q4.gif",
       "question":"What is the name of the character in the Harry Potter movie Series",
       "option":[
         {
@@ -135,7 +141,7 @@
     {
       "id":5,
       "difficulty": 8,
-      "gif":"https://vignette.wikia.nocookie.net/harrypotter/images/3/3a/Sectumempra_Curse.gif/revision/latest?cb=20151211212618",
+      "gif":"http://localhost:3000/q5.gif",
       "category": "Movie",
       "question":"Identify the movie name and the spell that Harry Potter uses in this scene.",
       "option":[
@@ -180,7 +186,7 @@
     {
       "id":6,
       "difficulty": 8,
-      "gif":"https://vignette.wikia.nocookie.net/harrypotter/images/9/9e/Ambush_lovegood.gif/revision/latest?cb=20180803170053",
+      "gif":"http://localhost:3000/q6.gif",
       "category": "Object",
       "question":"What chess piece does the Lovegood house resemble?",
       "option":[
@@ -225,7 +231,7 @@
     {
       "id":7,
       "difficulty": 9,
-      "gif":"https://thumbs.gfycat.com/ExhaustedFinishedArachnid-small.gif",
+      "gif":"http://localhost:3000/q7.gif",
       "category": "Object",
       "question":"What is the name of the Weasley's house?",
       "option":[
@@ -246,7 +252,7 @@
     {
       "id":8,
       "difficulty": 3,
-      "gif":"https://i.pinimg.com/originals/3c/8b/3f/3c8b3ff063d847c197784460bdb2eab3.gif",
+      "gif":"http://localhost:3000/q8.gif",
       "category": "Movie",
       "question":"What is Snape’s Patronus?",
       "option":[
@@ -287,7 +293,7 @@
       "difficulty": 3,
       "gif":"https://thumbs.gfycat.com/SomeUnripeIcterinewarbler-small.gif",
       "category": "Movie",
-      "question":"With whom did Harry Potter went on the prom in the Goblet of Fire?",
+      "question":"With whom did Harry Potter go for the prom night in the Goblet of Fire movie?",
       "option":[
         {
           "id": 1,
@@ -298,6 +304,99 @@
         {
           "id": 2,
           "optionString": "Padma Patil",
+          "isChecked": false,
+          "class":"example-margin"
+        }
+      ]
+    },
+    {
+      "id":10,
+      "difficulty": 3,
+      "gif":"http://localhost:3000/q10.webp",
+      "category": "Movie",
+      "question":"Who can see Thestrals?",
+      "option":[
+        {
+          "id": 1,
+          "optionString": "One, who has murdered somebody",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 2,
+          "optionString": "One who has no parents",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 3,
+          "optionString": "One who has had death-like experience in the past",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 4,
+          "optionString": "One who has seen somebody die",
+          "isChecked": false,
+          "class":"example-margin"
+        }
+      ]
+    },
+    {
+      "id":11,
+      "difficulty": 3,
+      "gif":"http://localhost:3000/q11.webp",
+      "category": "Movie",
+      "question":"Who could not make it after the Battle of Hogwarts?",
+      "option":[
+        {
+          "id": 1,
+          "optionString": "Fred Weasley",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 2,
+          "optionString": "George Weasley",
+          "isChecked": false,
+          "class":"example-margin"
+        }
+      ]
+    },
+    {
+      "id":12,
+      "difficulty": 3,
+      "gif":"http://localhost:3000/q12.txt",
+      "category": "Movie",
+      "question":"Which three of the following objects constitute the famous Deathly Hallows?",
+      "option":[
+        {
+          "id": 1,
+          "optionString": "The Sword of Gryffindor",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 2,
+          "optionString": "Resurrection Stone",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 3,
+          "optionString": "Rowena's Diadem",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 4,
+          "optionString": "Invisible Cloak",
+          "isChecked": false,
+          "class":"example-margin"
+        },
+        {
+          "id": 5,
+          "optionString": "Elder Wand",
           "isChecked": false,
           "class":"example-margin"
         }
@@ -340,6 +439,18 @@
     {
       "id": 9,
       "options": [1]
+    },
+    {
+      "id": 10,
+      "options": [4]
+    },
+    {
+      "id": 11,
+      "options": [1]
+    },
+    {
+      "id": 11,
+      "options": [2,4,5]
     }
   ]
 }
