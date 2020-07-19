@@ -251,7 +251,7 @@
     },
     {
       "id":8,
-      "difficulty": 3,
+      "difficulty": 7,
       "gif":"http://localhost:3000/q8.gif",
       "category": "Movie",
       "question":"What is Snape’s Patronus?",
@@ -290,7 +290,7 @@
     },
     {
       "id":9,
-      "difficulty": 3,
+      "difficulty": 6,
       "gif":"https://thumbs.gfycat.com/SomeUnripeIcterinewarbler-small.gif",
       "category": "Movie",
       "question":"With whom did Harry Potter go for the prom night in the Goblet of Fire movie?",
@@ -311,7 +311,7 @@
     },
     {
       "id":10,
-      "difficulty": 3,
+      "difficulty": 4,
       "gif":"http://localhost:3000/q10.webp",
       "category": "Movie",
       "question":"Who can see Thestrals?",
@@ -344,7 +344,7 @@
     },
     {
       "id":11,
-      "difficulty": 3,
+      "difficulty": 7,
       "gif":"http://localhost:3000/q11.webp",
       "category": "Movie",
       "question":"Who could not make it after the Battle of Hogwarts?",
@@ -365,7 +365,7 @@
     },
     {
       "id":12,
-      "difficulty": 3,
+      "difficulty": 4,
       "gif":"http://localhost:3000/q12.txt",
       "category": "Movie",
       "question":"Which three of the following objects constitute the famous Deathly Hallows?",
@@ -449,7 +449,7 @@
       "options": [1]
     },
     {
-      "id": 11,
+      "id": 12,
       "options": [2,4,5]
     }
   ]
